@@ -7,10 +7,11 @@ namespace Library.Models.Entities
 {
     public class Author : BaseEntity
     {
+
         public string FirstName { get; set; }
 
         public string LasttName { get; set; }
 
-        public IList<Book> Books = new List<Book>();
+        //public IList<Book> Books = new List<Book>();
     }
 }
