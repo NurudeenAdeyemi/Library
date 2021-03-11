@@ -19,5 +19,7 @@ namespace Library.Interface.Repositories
         public void DeleteAuthor(int id);
 
         public bool Exists(int id);
+
+        public Author FindByEmail(string email);
     }
 }

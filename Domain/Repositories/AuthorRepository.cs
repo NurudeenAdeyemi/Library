@@ -54,5 +54,10 @@ namespace Library.Domain.Repositories
             _libraryContext.SaveChanges();
             return author;
         }
+
+        public Author FindByEmail(string email)
+        {
+            return _libraryContext.Authors.FirstOrDefault(c => c.Email == email);
+        }
     }
 }

@@ -45,5 +45,16 @@ namespace Library.Domain.Services
         {
             return _authorRepository.Exists(id);
         }
+
+        public Author Login(string username, string password)
+        {
+            var author = _authorRepository.FindByEmail(username);
+            if (author == null || author.Password != password)
+            {
+                return null;
+            }
+
+            return author;
+        }
     }
 }

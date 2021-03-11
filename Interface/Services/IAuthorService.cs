@@ -19,5 +19,7 @@ namespace Library.Interface.Services
         public void DeleteAuthor(int id);
 
         public bool Exists(int id);
+
+        public Author Login(string username, string password);
     }
 }

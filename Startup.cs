@@ -3,6 +3,7 @@ using Library.Domain.Services;
 using Library.Interface.Repositories;
 using Library.Interface.Services;
 using Library.Models.ApplicationContext;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,6 +35,12 @@ namespace Library
                     options.UseMySQL(Configuration.GetConnectionString("LibraryContext")));
             services.AddScoped<IAuthorRepository, AuthorRepository>();
             services.AddScoped<IAuthorService, AuthorService>();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(config =>
+                {
+                    config.LoginPath = "/login";
+                    config.Cookie.Name = "Library";
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
